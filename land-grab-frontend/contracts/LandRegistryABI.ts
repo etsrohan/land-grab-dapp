@@ -1,0 +1,342 @@
+export const LandRegistryABI = [
+  { type: "constructor", inputs: [], stateMutability: "nonpayable" },
+  {
+    type: "function",
+    name: "MAX_CLAIM_DISTANCE",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "batchUpdateLands",
+    inputs: [
+      {
+        name: "what3words",
+        type: "string[]",
+        internalType: "string[]",
+      },
+      { name: "newOwner", type: "address", internalType: "address" },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "claimLand",
+    inputs: [{ name: "what3words", type: "string", internalType: "string" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "getLandDetails",
+    inputs: [{ name: "what3words", type: "string", internalType: "string" }],
+    outputs: [
+      {
+        name: "",
+        type: "tuple",
+        internalType: "struct LandRegistry.Land",
+        components: [
+          {
+            name: "what3words",
+            type: "string",
+            internalType: "string",
+          },
+          { name: "owner", type: "address", internalType: "address" },
+          {
+            name: "claimedAt",
+            type: "uint256",
+            internalType: "uint256",
+          },
+          { name: "isClaimed", type: "bool", internalType: "bool" },
+        ],
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getUserLands",
+    inputs: [{ name: "user", type: "address", internalType: "address" }],
+    outputs: [{ name: "", type: "string[]", internalType: "string[]" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "landSwap",
+    inputs: [],
+    outputs: [{ name: "", type: "address", internalType: "address" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "lands",
+    inputs: [{ name: "", type: "string", internalType: "string" }],
+    outputs: [
+      { name: "what3words", type: "string", internalType: "string" },
+      { name: "owner", type: "address", internalType: "address" },
+      { name: "claimedAt", type: "uint256", internalType: "uint256" },
+      { name: "isClaimed", type: "bool", internalType: "bool" },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "owner",
+    inputs: [],
+    outputs: [{ name: "", type: "address", internalType: "address" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "releaseLand",
+    inputs: [{ name: "what3words", type: "string", internalType: "string" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "renounceOwnership",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "setLandSwap",
+    inputs: [{ name: "_landSwap", type: "address", internalType: "address" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "setUserRegistry",
+    inputs: [
+      {
+        name: "_userRegistry",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "transferOwnership",
+    inputs: [{ name: "newOwner", type: "address", internalType: "address" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "updateLand",
+    inputs: [
+      { name: "what3words", type: "string", internalType: "string" },
+      {
+        name: "newLand",
+        type: "tuple",
+        internalType: "struct LandRegistry.Land",
+        components: [
+          {
+            name: "what3words",
+            type: "string",
+            internalType: "string",
+          },
+          { name: "owner", type: "address", internalType: "address" },
+          {
+            name: "claimedAt",
+            type: "uint256",
+            internalType: "uint256",
+          },
+          { name: "isClaimed", type: "bool", internalType: "bool" },
+        ],
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "userLands",
+    inputs: [
+      { name: "", type: "address", internalType: "address" },
+      { name: "", type: "uint256", internalType: "uint256" },
+    ],
+    outputs: [{ name: "", type: "string", internalType: "string" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "userNeighbors",
+    inputs: [
+      { name: "", type: "address", internalType: "address" },
+      { name: "", type: "string", internalType: "string" },
+    ],
+    outputs: [{ name: "", type: "bool", internalType: "bool" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "userRegistry",
+    inputs: [],
+    outputs: [{ name: "", type: "address", internalType: "address" }],
+    stateMutability: "view",
+  },
+  {
+    type: "event",
+    name: "LandBatchUpdated",
+    inputs: [
+      {
+        name: "what3words",
+        type: "string[]",
+        indexed: false,
+        internalType: "string[]",
+      },
+      {
+        name: "newOwner",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "LandClaimed",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "what3words",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "LandReleased",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "what3words",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "LandSurrounded",
+    inputs: [
+      {
+        name: "what3words",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "newOwner",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "LandUpdated",
+    inputs: [
+      {
+        name: "what3words",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "newOwner",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "OwnershipTransferred",
+    inputs: [
+      {
+        name: "previousOwner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "newOwner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "error",
+    name: "OwnableInvalidOwner",
+    inputs: [{ name: "owner", type: "address", internalType: "address" }],
+  },
+  {
+    type: "error",
+    name: "OwnableUnauthorizedAccount",
+    inputs: [{ name: "account", type: "address", internalType: "address" }],
+  },
+  { type: "error", name: "ReentrancyGuardReentrantCall", inputs: [] },
+];

@@ -1,0 +1,252 @@
+export const LandSwapABI = [
+  {
+    type: "constructor",
+    inputs: [
+      {
+        name: "_landRegistry",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "MAX_ACTIVE_SWAPS",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "SWAP_EXPIRY_TIME",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "activeSwapCount",
+    inputs: [{ name: "", type: "address", internalType: "address" }],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "approveSwap",
+    inputs: [{ name: "proposer", type: "address", internalType: "address" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "cancelSwap",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "checkAndExpireSwaps",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "landRegistry",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "contract LandRegistry",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "proposeSwap",
+    inputs: [
+      { name: "proposerLand", type: "string", internalType: "string" },
+      { name: "targetLand", type: "string", internalType: "string" },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "swapApprovals",
+    inputs: [
+      { name: "", type: "address", internalType: "address" },
+      { name: "", type: "address", internalType: "address" },
+    ],
+    outputs: [{ name: "", type: "bool", internalType: "bool" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "swapProposals",
+    inputs: [{ name: "", type: "address", internalType: "address" }],
+    outputs: [
+      { name: "proposer", type: "address", internalType: "address" },
+      { name: "proposerLand", type: "string", internalType: "string" },
+      { name: "targetLand", type: "string", internalType: "string" },
+      { name: "isActive", type: "bool", internalType: "bool" },
+      { name: "createdAt", type: "uint256", internalType: "uint256" },
+      { name: "expiresAt", type: "uint256", internalType: "uint256" },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "event",
+    name: "SwapApproved",
+    inputs: [
+      {
+        name: "approver",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "proposer",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "SwapCancelled",
+    inputs: [
+      {
+        name: "proposer",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "proposerLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "targetLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "SwapExecuted",
+    inputs: [
+      {
+        name: "proposer",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "proposerLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "targetLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "SwapExpired",
+    inputs: [
+      {
+        name: "proposer",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "proposerLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "targetLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "SwapProposed",
+    inputs: [
+      {
+        name: "proposer",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "proposerLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "targetLand",
+        type: "string",
+        indexed: false,
+        internalType: "string",
+      },
+      {
+        name: "expiresAt",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  { type: "error", name: "ReentrancyGuardReentrantCall", inputs: [] },
+];
