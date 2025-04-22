@@ -1,0 +1,6 @@
+[polygon amoy]
+LandRegistry deployed at: 0xA45B1E87AfA000AB7c8B3099A43d57d38Fb8F0D0
+LandSwap deployed at: 0xADbF04c9df2d3c3F9Bb84951DA5cF64Ee5cD8162
+LandSwap address set in LandRegistry
+UserRegistry deployed at: 0x5D7cc7cb12C4389940b9b756BCfA7921bF78Ca73
+UserRegistry address set in LandRegistry
